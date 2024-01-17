@@ -1,7 +1,6 @@
 .button {
   width: 130px;
   height: 40px;
-  border: none;
   text-align: center;
   cursor: pointer;
   transition: 0.2s;
