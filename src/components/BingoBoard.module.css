@@ -1,0 +1,9 @@
+.boardRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  min-width: 1200px;
+  background-color: grey;
+}
