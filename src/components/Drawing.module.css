@@ -1,0 +1,14 @@
+.drawingRoot {
+  width: 100dvw;
+  height: 100dvh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawingRoot > * {
+  color: #eee;
+}

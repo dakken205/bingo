@@ -7,10 +7,18 @@
   gap: 20px;
 }
 
-.buttonContainer {
+.buttonContainer,
+.animationButtonContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.buttonContainer {
   gap: 20px;
+}
+
+.animationButtonContainer {
+  gap: 5px;
 }
