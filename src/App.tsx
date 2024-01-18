@@ -12,7 +12,11 @@ export default function App() {
   const [isAnimationEnabled, setIsAnimationEnabled] = useState<boolean>(false);
   const [latestSelected, setLatestSelected] = useState<number>(-1);
 
-  const [drawn, setDrawn] = useState<Set<number>>(new Set());
+  const [drawn, setDrawn] = useState<Set<number>>(
+    localStorage.getItem("drawn")
+      ? new Set(JSON.parse(localStorage.getItem("drawn")!))
+      : new Set()
+  );
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
 
   const [afterAnimation, setAfterAnimation] = useState<boolean>(false);
@@ -33,10 +37,12 @@ export default function App() {
         setAfterAnimation(true);
         drawn.add(item);
         setDrawn((prev) => new Set(prev.add(item)));
+        localStorage.setItem("drawn", JSON.stringify(Array.from(drawn)));
       }, 5000);
     } else {
       drawn.add(item);
       setDrawn((prev) => new Set(prev.add(item)));
+      localStorage.setItem("drawn", JSON.stringify(Array.from(drawn)));
     }
   };
 
@@ -65,7 +71,8 @@ export default function App() {
         <Button
           label={"はじめから"}
           onClick={() => {
-            window.location.reload();
+            setDrawn(new Set());
+            localStorage.removeItem("drawn");
           }}
         />
         <Button label={"まわす"} onClick={draw} />
@@ -75,7 +82,9 @@ export default function App() {
           type="checkbox"
           id="animation"
           checked={isAnimationEnabled}
-          onChange={(e) => setIsAnimationEnabled(e.target.checked)}
+          onChange={(e) => {
+            setIsAnimationEnabled(e.target.checked);
+          }}
         />
         <label htmlFor="animation">サウンドとアニメーション</label>
       </div>
