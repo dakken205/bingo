@@ -3,10 +3,9 @@ import styles from "./Drawing.module.css";
 
 interface DrawingProps {
   items: string[];
-  selected: number;
 }
 
-export default function Drawing({ items, selected }: DrawingProps) {
+export default function Drawing({ items }: DrawingProps) {
   const [displayingItemIndex, setDisplayingItemIndex] = useState(0);
 
   useEffect(() => {

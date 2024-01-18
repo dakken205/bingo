@@ -42,7 +42,7 @@ export default function App() {
 
   return (
     <main className={styles.main}>
-      {isDrawing && <Drawing items={items} selected={latestSelected} />}
+      {isDrawing && <Drawing items={items} />}
       {afterAnimation && (
         <Selected
           item={items[latestSelected]}
