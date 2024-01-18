@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BingoBoard from "./components/BingoBoard";
 import Button from "./components/Button";
+import Selected from "./components/Selected";
 import Drawing from "./components/Drawing";
 import items from "./data/items.json";
 import drum from "./assets/se/short.mp3";
@@ -9,14 +10,19 @@ import styles from "./App.module.css";
 
 export default function App() {
   const [isAnimationEnabled, setIsAnimationEnabled] = useState<boolean>(false);
+  const [latestSelected, setLatestSelected] = useState<number>(-1);
+
   const [drawn, setDrawn] = useState<Set<number>>(new Set());
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
+
+  const [afterAnimation, setAfterAnimation] = useState<boolean>(false);
 
   const draw = () => {
     if (drawn.size === items.length) return;
     let remaining = Array.from(items.keys()).filter((i) => !drawn.has(i));
     let index = Math.floor(Math.random() * remaining.length);
     let item = remaining[index];
+    setLatestSelected(item);
 
     if (isAnimationEnabled) {
       setIsDrawing(true);
@@ -24,6 +30,7 @@ export default function App() {
       setTimeout(() => {
         new Audio(closing).play();
         setIsDrawing(false);
+        setAfterAnimation(true);
         drawn.add(item);
         setDrawn((prev) => new Set(prev.add(item)));
       }, 5000);
@@ -35,7 +42,15 @@ export default function App() {
 
   return (
     <main className={styles.main}>
-      {isDrawing && <Drawing />}
+      {isDrawing && <Drawing items={items} selected={latestSelected} />}
+      {afterAnimation && (
+        <Selected
+          item={items[latestSelected]}
+          close={() => {
+            setAfterAnimation(false);
+          }}
+        />
+      )}
       <h1>
         <span>社</span>
         <span>情</span>

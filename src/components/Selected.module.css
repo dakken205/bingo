@@ -1,0 +1,14 @@
+.selectedRoot {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+}
+
+.text {
+  font-size: 5rem;
+  font-weight: 600;
+  color: #111;
+}
