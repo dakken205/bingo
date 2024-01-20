@@ -6,7 +6,7 @@ import { ref } from "vue";
 function handleSubmit() {
   if (year.value && serial.value) {
     const studentId = `JB${year.value}S${serial.value.toString().padStart(3, "0")}`;
-    window.location.href = `/card/${studentId}`;
+    window.location.href = `/bingo/card/${studentId}`;
   }
 }
 
