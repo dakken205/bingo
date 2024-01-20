@@ -3,9 +3,9 @@ import BingoBoard from "./components/BingoBoard";
 import Button from "./components/Button";
 import Selected from "./components/Selected";
 import Drawing from "./components/Drawing";
-import items from "./data/items.json";
-import drum from "./assets/se/short.mp3";
-import closing from "./assets/se/closing.mp3";
+import items from "../../data/items.json";
+import drum from "../../assets/se/short.mp3";
+import closing from "../../assets/se/closing.mp3";
 import styles from "./App.module.css";
 
 export default function App() {
