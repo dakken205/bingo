@@ -1,0 +1,46 @@
+---
+import UserCard from "../../components/card/components/UserCard.vue";
+
+export function getStaticPaths() {
+  let paths: { params: { id: string } }[] = [];
+  for (let year = 19; year <= 22; year++) {
+    for (let serial = 1; serial <= 110; serial++) {
+      const formattedId = `JB${year}S${serial.toString().padStart(3, "0")}`;
+      paths.push({ params: { id: formattedId } });
+    }
+  }
+  return paths;
+}
+
+const { id } = Astro.params;
+const year = parseInt(id.slice(2, 4));
+const serial = parseInt(id.slice(5, 8));
+---
+
+<main>
+  <UserCard year={year} serial={serial} client:only="vue" />
+</main>
+
+<style is:global>
+  @font-face {
+    font-family: "MochiyPopOne";
+    src: url(../../assets/fonts/MochiyPopOne-Regular.ttf);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "MochiyPopOne", sans-serif;
+    color: #111;
+  }
+</style>
+
+<style>
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #eee;
+  }
+</style>
