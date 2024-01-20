@@ -1,31 +1,8 @@
 ---
+import CardLayout from "../../layouts/Card.astro";
 import App from "../../components/card/App.vue";
 ---
 
-<body>
+<CardLayout>
   <App client:only="vue" />
-</body>
-
-<style is:global>
-  @font-face {
-    font-family: "MochiyPopOne";
-    src: url(../../assets/fonts/MochiyPopOne-Regular.ttf);
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: "MochiyPopOne", sans-serif;
-    color: #111;
-  }
-</style>
-
-<style>
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #eee;
-  }
-</style>
+</CardLayout>

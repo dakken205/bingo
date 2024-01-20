@@ -1,28 +1,8 @@
 ---
+import BaseLayout from "../layouts/Base.astro";
 import App from "../components/roulette/App.tsx";
 ---
 
-<main>
+<BaseLayout>
   <App client:only="react" />
-</main>
-
-<style is:global>
-  @font-face {
-    font-family: "MochiyPopOne";
-    src: url(../assets/fonts/MochiyPopOne-Regular.ttf);
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: "MochiyPopOne", sans-serif;
-    color: #111;
-  }
-</style>
-
-<style>
-  main {
-    background-color: #eee;
-    max-height: 100vh;
-  }
-</style>
+</BaseLayout>

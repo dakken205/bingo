@@ -27,7 +27,7 @@ isOpened.value[flatten(2, 2)] = true;
 </script>
 
 <template>
-  <div>
+  <div class="card-root">
     <section>
       <div>{{ `JB${props.year}S${props.serial}` }}用のカード</div>
     </section>
@@ -62,6 +62,14 @@ isOpened.value[flatten(2, 2)] = true;
 </template>
 
 <style>
+.card-root {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .bingo-item {
   width: 60px;
   height: 60px;
