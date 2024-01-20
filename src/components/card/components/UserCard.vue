@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import Random from "../services/Random";
 import items from "../../../data/items.json";
+import freeImg from "../../../assets/img/sisbingo.png";
 
 function flatten(i: number, j: number) {
   return i * 5 + j;
@@ -37,13 +38,8 @@ isOpened.value[flatten(2, 2)] = true;
     <table>
       <tr v-for="i in 5" v-bind:key="i">
         <td v-for="j in 5" v-bind:key="j">
-          <button v-if="i == 3 && j == 3" class="bingo-item">
-            <img
-              src="../../../assets/img/sisbingo.png"
-              alt="bingo-center closed"
-              height="50px"
-              width="50px"
-            />
+          <button v-if="i == 3 && j == 3" class="bingo-item opened">
+            <img :src="freeImg.src" alt="free" height="50px" width="50px" />
           </button>
           <button
             v-else
