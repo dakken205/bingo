@@ -1,0 +1,24 @@
+.main {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.buttonContainer,
+.animationButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonContainer {
+  gap: 20px;
+}
+
+.animationButtonContainer {
+  gap: 5px;
+}
