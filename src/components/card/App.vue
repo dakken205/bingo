@@ -18,13 +18,13 @@ const serial = ref<number | null>(null);
   <div class="input-container">
     <p>以下の項目を入力してください</p>
     <input
-      type="number"
-      placeholder="学籍番号の上２桁（半角）"
+      type="tel"
+      placeholder="学籍番号の上２桁"
       v-model="year"
     />
     <input
-      type="number"
-      placeholder="学籍番号の下３桁（半角）"
+      type="tel"
+      placeholder="学籍番号の下３桁"
       v-model="serial"
     />
     <button class=".button" @click="handleSubmit">ビンゴカードの取得</button>
